@@ -1,0 +1,244 @@
+/* Reset e variabili */
+:root {
+    --bg: #f0f4f8;
+    --card-bg: #ffffff;
+    --text: #2d3748;
+    --accent: #3182ce;
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #1a202c;
+        --card-bg: #2d3748;
+        --text: #e2e8f0;
+        --accent: #63b3ed;
+    }
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header */
+.site-header {
+    background: var(--gradient);
+    color: white;
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.lang-switcher {
+    list-style: none;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.lang-switcher a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 0.2rem 0.3rem;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+
+.lang-switcher a:hover,
+.lang-switcher a.active {
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+/* Hero */
+.hero h1 { font-size: 2.2rem; margin-bottom: 0.3rem; }
+.hero p { opacity: 0.9; max-width: 700px; }
+
+/* Grid città */
+.country-heading {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    padding-left: 0.5rem;
+    border-left: 5px solid var(--accent);
+}
+
+.city-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.city-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.city-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.weather-icon-large {
+    width: 70px;
+    height: 70px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Sole rotante (codice icona chiaro) */
+.weather-icon-large[src*="01d"],
+.weather-icon-large[src*="01n"] {
+    animation: spin 6s linear infinite, float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.card-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.card-info .temp {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.card-info .desc {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    display: block;
+}
+
+.country-flag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Dettaglio previsioni */
+.forecast-detail {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.forecast-table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    display: block;
+}
+
+.forecast-table-wrapper th,
+.forecast-table-wrapper td {
+    padding: 0.8rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(128,128,128,0.3);
+    white-space: nowrap;
+}
+
+.forecast-table-wrapper th {
+    background: var(--gradient);
+    color: white;
+    font-weight: normal;
+}
+
+.forecast-table-wrapper td img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--accent);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .city-cards {
+        grid-template-columns: 1fr;
+    }
+    .forecast-detail {
+        padding: 1rem;
+    }
+    .forecast-table-wrapper th,
+    .forecast-table-wrapper td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
