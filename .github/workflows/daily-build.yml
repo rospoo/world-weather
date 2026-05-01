@@ -1,6 +1,5 @@
 name: Daily Build and Deploy
 
-
 on:
   push:
     branches: [ main ]
