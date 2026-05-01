@@ -1,9 +1,12 @@
 name: Daily Build and Deploy
 
+
 on:
+  push:
+    branches: [ main ]
   schedule:
-    - cron: '0 3 * * *'   # ogni giorno alle 3:00 UTC
-  workflow_dispatch:      # esecuzione manuale
+    - cron: '0 3 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
