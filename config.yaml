@@ -1,0 +1,92 @@
+baseURL: 'https://TUO_NOME_UTENTE.github.io/world-weather/'
+languageCode: 'it'
+title: 'World Weather'
+disableKinds: ['taxonomy', 'term', 'RSS']
+
+languages:
+  it:
+    languageName: 🇮🇹 Italiano
+    weight: 1
+    title: Meteo Mondiale
+  en:
+    languageName: 🇬🇧 English
+    weight: 2
+    title: World Weather
+  fr:
+    languageName: 🇫🇷 Français
+    weight: 3
+    title: Météo Mondiale
+  de:
+    languageName: 🇩🇪 Deutsch
+    weight: 4
+    title: Weltwetter
+  es:
+    languageName: 🇪🇸 Español
+    weight: 5
+    title: Clima Mundial
+  pt:
+    languageName: 🇵🇹 Português
+    weight: 6
+    title: Tempo Mundial
+  ru:
+    languageName: 🇷🇺 Русский
+    weight: 7
+    title: Мировая погода
+  zh:
+    languageName: 🇨🇳 中文
+    weight: 8
+    title: 世界天气
+  ja:
+    languageName: 🇯🇵 日本語
+    weight: 9
+    title: 世界の天気
+  ar:
+    languageName: 🇸🇦 العربية
+    weight: 10
+    title: طقس العالم
+  hi:
+    languageName: 🇮🇳 हिन्दी
+    weight: 11
+    title: विश्व मौसम
+  bn:
+    languageName: 🇧🇩 বাংলা
+    weight: 12
+    title: বিশ্ব আবহাওয়া
+  ko:
+    languageName: 🇰🇷 한국어
+    weight: 13
+    title: 세계 날씨
+  tr:
+    languageName: 🇹🇷 Türkçe
+    weight: 14
+    title: Dünya Hava Durumu
+  pl:
+    languageName: 🇵🇱 Polski
+    weight: 15
+    title: Pogoda na Świecie
+  nl:
+    languageName: 🇳🇱 Nederlands
+    weight: 16
+    title: Wereldweer
+  sv:
+    languageName: 🇸🇪 Svenska
+    weight: 17
+    title: Världsväder
+  no:
+    languageName: 🇳🇴 Norsk
+    weight: 18
+    title: Verdensvær
+  da:
+    languageName: 🇩🇰 Dansk
+    weight: 19
+    title: Verdensvejr
+  fi:
+    languageName: 🇫🇮 Suomi
+    weight: 20
+    title: Maailman sää
+
+permalinks:
+  cities: '/cities/:slug/'
+
+params:
+  footerText: "Fatto con ❤️ e Hugo"

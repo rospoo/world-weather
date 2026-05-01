@@ -1,0 +1,44 @@
+{{ define "main" }}
+<section class="hero">
+    <h1>{{ .Title }}</h1>
+    <p>Previsioni meteo per oltre {{ len .Site.Data.home_weather }} città nel mondo. 
+       Scegli una città per vedere le previsioni a 5 giorni.</p>
+</section>
+
+<section class="city-grid">
+    {{ $home := .Site.Data.home_weather }}
+    {{ $allPages := where .Site.RegularPages "Section" "cities" }}
+    {{/* Raggruppa per paese */}}
+    {{ $groups := dict }}
+    {{ range $allPages }}
+        {{ $original := .Params.original_name }}
+        {{ $weather := index $home $original }}
+        {{ if $weather }}
+            {{ $country := $weather.country }}
+            {{ $existing := index $groups $country | default slice }}
+            {{ $groups = merge $groups (dict $country ($existing | append (dict "page" . "weather" $weather))) }}
+        {{ end }}
+    {{ end }}
+
+    {{ range $country, $items := $groups }}
+    <h2 class="country-heading">{{ $country }}</h2>
+    <div class="city-cards">
+        {{ range $items }}
+        <a href="{{ .page.Permalink }}" class="city-card">
+            <div class="card-icon">
+                <img src="https://openweathermap.org/img/wn/{{ .weather.icon }}@2x.png" 
+                     alt="{{ .weather.description }}" 
+                     class="weather-icon-large" />
+            </div>
+            <div class="card-info">
+                <h3>{{ .page.Title }}</h3>
+                <span class="temp">{{ .weather.temp }}°C</span>
+                <span class="desc">{{ .weather.description }}</span>
+                <span class="country-flag">{{ .weather.country_code }}</span>
+            </div>
+        </a>
+        {{ end }}
+    </div>
+    {{ end }}
+</section>
+{{ end }}

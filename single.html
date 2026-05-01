@@ -1,0 +1,9 @@
+{{ define "main" }}
+<article class="forecast-detail">
+    <h1>{{ .Title }}</h1>
+    <div class="forecast-table-wrapper">
+        {{ .Content }}
+    </div>
+    <a href="{{ .Site.Home.Permalink }}" class="back-link">&larr; Tutte le città</a>
+</article>
+{{ end }}
