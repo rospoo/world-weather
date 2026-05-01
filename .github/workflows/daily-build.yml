@@ -28,6 +28,9 @@ jobs:
           OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
         run: python scripts/generate.py
 
+      - name: Debug - Mostra file generati
+        run: find content -type f
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
